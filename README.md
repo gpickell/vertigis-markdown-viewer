@@ -9,15 +9,15 @@ This viewer boots from a nearly empty `index.html`, loads its rendering librarie
 ## Features
 
 - bare HTML bootstrap: empty favicon, one inline module script, nothing else in the page
-- no local package/runtime dependencies
-- `markdown-it` and `highlight.js` loaded from CDN
-- top-level `await Promise.all(...)` preload of every configured page
-- pre-rendered page swaps with hash routing in `#page/section` form
-- first `# H1` becomes the page title/source of page labeling
-- pinned page navigation plus independently scrolling ToC
-- safe markdown defaults: raw HTML disabled, external links opened safely, images lazy-loaded
-- syntax highlighting, code block type headers, whole-block copy, CLI per-line copy, multiline CLI command copy
-- themed tables, code blocks, and docs layout
+- no local package/runtime dependencies; third-party libraries are loaded from a CDN at runtime
+- top-level `await` bootstrap that fetches every configured markdown page in parallel before the interface settles
+- pre-rendered page swaps so moving between configured pages is immediate after startup
+- hash routing in `#page/section` form with section deep links and active-section syncing while you scroll
+- page labels sourced from the first `# H1` in each markdown file
+- pinned page navigation plus an independently scrolling table of contents generated from headings
+- safe markdown defaults: raw HTML disabled, external links opened safely, and images lazy-loaded with safer fetch/render hints
+- syntax highlighting, code block headers, whole-block copy, CLI per-command copy, and multiline CLI command copy grouping
+- styled tables, blockquotes, lists, and code surfaces so the viewer feels like a docs reader rather than a raw markdown dump
 
 ## Bootstrap
 
